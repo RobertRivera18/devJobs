@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Vacante extends Model
 {
-    protected $fillable=[
+    protected $dates = ['ultimo_dia'];
+    protected $fillable = [
         'titulo',
         'salario_id',
         'categoria_id',
@@ -17,7 +18,6 @@ class Vacante extends Model
         'imagen',
         'publicado',
         'user_id'
-
     ];
     use HasFactory;
 }
