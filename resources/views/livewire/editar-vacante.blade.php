@@ -83,8 +83,10 @@
         @enderror
 
     </div>
-
+  <div class="flex justify-end">
     <x-button>Guardar Cambios</x-button>
+  </div>
+    
 
 
 </form>

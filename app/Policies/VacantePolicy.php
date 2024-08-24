@@ -30,7 +30,7 @@ class VacantePolicy
      */
     public function view(User $user, Vacante $vacante)
     {
-        //
+        return $user->rol = "2";
     }
 
     /**
@@ -53,7 +53,7 @@ class VacantePolicy
      */
     public function update(User $user, Vacante $vacante)
     {
-        return $user->id === $vacante->user()->id;
+        return $user->id === $vacante->user_id;
     }
 
     /**
