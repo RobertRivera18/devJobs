@@ -11,23 +11,23 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <h1 class="text-2xl font-bold text-center mb-8">Mis Notificaciones</h1>
 
-                    @forelse($notificaciones as $notificacion)
-                    <div class="p-5 border border-gray-200 lg:flex lg:justify-between lg:items-center">
-                        <div>
+                    <div class="divide-y divide-gray-200">
+                        @forelse($notificaciones as $notificacion)
+                        <div class="p-5 lg:flex lg:justify-between lg:items-center">
+                            <div>
+                                <p>Tiene un nuevo candidato en <span
+                                        class="font-bold">{{$notificacion->data['nombre_vacante']}}</span></p>
+                                <p><span class="font-bold">{{$notificacion->created_at->diffForHumans()}}</span></p>
+                            </div>
 
-
-                            <p>Tiene un nuevo candidato en <span
-                                    class="font-bold">{{$notificacion->data['nombre_vacante']}}</span></p>
-                            <p><span class="font-bold">{{$notificacion->created_at->diffForHumans()}}</span></p>
+                            <div class="mt-5 lg:mt-0">
+                                <a class="bg-indigo-500 p-3 rounded-lg text-sm text-white" href="{{route('candidatos.index',$notificacion->data['id_vacante'])}}">Ver Candidatos</a>
+                            </div>
                         </div>
-
-                        <div class="mt-5 lg:mt-0">
-                            <a class="bg-indigo-500 p-3 rounded-lg text-sm text-white" href="">Ver Candidatos</a>
-                        </div>
+                        @empty
+                        <p class="text-center text-gray-600">No hay Notificciones Nuevas</p>
+                        @endforelse
                     </div>
-                    @empty
-                    <p class="text-center text-gray-600">No hay Notificciones Nuevas</p>
-                    @endforelse
                 </div>
             </div>
         </div>
