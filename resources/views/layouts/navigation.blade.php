@@ -95,6 +95,7 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         @auth
+        
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('vacantes.index')" :active="request()->routeIs('vacantes.index')">
                 {{ __('Mis Vacantes') }}
@@ -104,7 +105,6 @@
             </x-responsive-nav-link>
 
             @if (auth()->user()->rol ===2)
-
             <div class="flex gap-2 items-center p-3">
                 <a class="w-7 h-7 text-sm bg-indigo-600 hover:bg-indigo-800 rounded-full flex flex-col items-center justify-center font-extrabold text-white"
                     href="{{route('notificaciones')}}">

@@ -14,6 +14,6 @@ class HomeController extends Controller
      */
     public function __invoke(Request $request)
     {
-        dd('Desde Home');
+        return view('home.index');
     }
 }
