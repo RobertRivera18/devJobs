@@ -9,7 +9,7 @@ class Vacante extends Model
 {
     protected $dates = ['ultimo_dia'];
 
-    
+
     protected $fillable = [
         'titulo',
         'salario_id',
@@ -21,14 +21,23 @@ class Vacante extends Model
         'publicado',
         'user_id'
     ];
-    public function categoria(){
+    public function categoria()
+    {
         return $this->belongsTo(Categoria::class);
     }
-    public function salario(){
+    public function salario()
+    {
         return $this->belongsTo(Salario::class);
     }
-   
-    use HasFactory;
+    public function candidatos()
+    {
+        return $this->hasMany(Candidato::class);
+    }
 
-    
+    public function reclutador()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    use HasFactory;
 }
